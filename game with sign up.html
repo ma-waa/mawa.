@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>اختبار الشخصية</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style-sign-up-game.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>اختبار الشخصية</h1>
+      <!-- Initial Form -->
+      <div id="initialFormContainer">
+        <div class="card">
+          <div class="card-header">
+            <h2>بيانات أولية</h2>
+            <p class="card-description">
+              يرجى ملء البيانات التالية قبل بدء الاختبار
+            </p>
+          </div>
+
+          <div class="card-content">
+            <form id="initial-form" action="" method="POST">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">الاسم</label>
+                  <input type="text" id="name" name="name" required />
+                </div>
+                <div class="form-group">
+                  <label for="phone">الهاتف</label>
+                  <input type="tel" id="phone" name="phone" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="universityName">الجامعة</label>
+                  <select id="universityName" name="universityName" required>
+                    <!-- الجامعات الحكومية -->
+                    <option value="" disabled selected>اختر الجامعة</option>
+                    <option value="جامعة القاهرة">جامعة القاهرة</option>
+                    <option value="جامعة عين شمس">جامعة عين شمس</option>
+                    <option value="جامعة الإسكندرية">جامعة الإسكندرية</option>
+                    <option value="جامعة أسيوط">جامعة أسيوط</option>
+                    <option value="جامعة المنصورة">جامعة المنصورة</option>
+                    <option value="جامعة الزقازيق">جامعة الزقازيق</option>
+                    <option value="جامعة حلوان">جامعة حلوان</option>
+                    <option value="جامعة بني سويف">جامعة بني سويف</option>
+                    <option value="جامعة طنطا">جامعة طنطا</option>
+                    <option value="جامعة الفيوم">جامعة الفيوم</option>
+                    <option value="جامعة الأزهر">جامعة الأزهر</option>
+
+                    <!-- الجامعات الخاصة -->
+                    <option value="الجامعة الأمريكية بالقاهرة (AUC)">
+                      الجامعة الأمريكية بالقاهرة (AUC)
+                    </option>
+                    <option value="الجامعة الألمانية بالقاهرة (GUC)">
+                      الجامعة الألمانية بالقاهرة (GUC)
+                    </option>
+                    <option value="الجامعة البريطانية في مصر (BUE)">
+                      الجامعة البريطانية في مصر (BUE)
+                    </option>
+                    <option value="الجامعة الكندية (CUC)">
+                      الجامعة الكندية (CUC)
+                    </option>
+                    <option value="جامعة المستقبل (FUE)">
+                      جامعة المستقبل (FUE)
+                    </option>
+                    <option value="جامعة مصر الدولية (MIU)">
+                      جامعة مصر الدولية (MIU)
+                    </option>
+                    <option value="جامعة 6 أكتوبر">جامعة 6 أكتوبر</option>
+                    <option value="جامعة مصر للعلوم والتكنولوجيا (MUST)">
+                      جامعة مصر للعلوم والتكنولوجيا (MUST)
+                    </option>
+                    <option
+                      value="الجامعة الحديثة للتكنولوجيا والمعلومات (MTI)"
+                    >
+                      الجامعة الحديثة للتكنولوجيا والمعلومات (MTI)
+                    </option>
+                    <option value="جامعة النيل (NU)">جامعة النيل (NU)</option>
+
+                    <!-- الجامعات الأهلية والدولية -->
+                    <option value="جامعة الملك سلمان الدولية">
+                      جامعة الملك سلمان الدولية
+                    </option>
+                    <option value="جامعة العلمين الدولية">
+                      جامعة العلمين الدولية
+                    </option>
+                    <option value="جامعة الجلالة">جامعة الجلالة</option>
+                    <option value="جامعة المنصورة الجديدة">
+                      جامعة المنصورة الجديدة
+                    </option>
+                    <option
+                      value="الجامعة المصرية اليابانية للعلوم والتكنولوجيا (E-JUST)"
+                    >
+                      الجامعة المصرية اليابانية للعلوم والتكنولوجيا (E-JUST)
+                    </option>
+                    <option value="الجامعة المصرية الصينية (ECU)">
+                      الجامعة المصرية الصينية (ECU)
+                    </option>
+                    <option value="جامعة زويل للعلوم والتكنولوجيا">
+                      جامعة زويل للعلوم والتكنولوجيا
+                    </option>
+                    <option value="الجامعة الفرنسية في مصر (UFE)">
+                      الجامعة الفرنسية في مصر (UFE)
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="facultyname">الكلية</label>
+                  <select id="facultyname" name="facultyname" required>
+                    <option value="" disabled selected>اختر الكلية</option>
+                    <!-- الكليات الطبية -->
+                    <option value="كلية الطب">كلية الطب</option>
+                    <option value="كلية طب الأسنان">كلية طب الأسنان</option>
+                    <option value="كلية الصيدلة">كلية الصيدلة</option>
+                    <option value="كلية الطب البيطري">كلية الطب البيطري</option>
+                    <option value="كلية التمريض">كلية التمريض</option>
+                    <option value="كلية العلاج الطبيعي">
+                      كلية العلاج الطبيعي
+                    </option>
+                    <option value="كلية تكنولوجيا العلوم الصحية التطبيقية">
+                      كلية تكنولوجيا العلوم الصحية التطبيقية
+                    </option>
+
+                    <!-- الكليات الهندسية والتكنولوجية -->
+                    <option value="كلية الهندسة">كلية الهندسة</option>
+                    <option value="كلية الحاسبات والمعلومات">
+                      كلية الحاسبات والمعلومات
+                    </option>
+                    <option value="كلية الذكاء الاصطناعي">
+                      كلية الذكاء الاصطناعي
+                    </option>
+                    <option value="كلية التكنولوجيا والتعليم">
+                      كلية التكنولوجيا والتعليم
+                    </option>
+                    <option value="كلية الحاسبات والذكاء الاصطناعي">
+                      كلية الحاسبات والذكاء الاصطناعي
+                    </option>
+
+                    <!-- كليات العلوم الأساسية -->
+                    <option value="كلية العلوم">كلية العلوم</option>
+                    <option value="كلية الزراعة">كلية الزراعة</option>
+                    <option value="كلية الآداب">كلية الآداب</option>
+                    <option value="كلية التربية">كلية التربية</option>
+                    <option value="كلية التربية النوعية">
+                      كلية التربية النوعية
+                    </option>
+                    <option value="كلية التربية للطفولة المبكرة">
+                      كلية التربية للطفولة المبكرة
+                    </option>
+                    <option value="كلية دار العلوم">كلية دار العلوم</option>
+
+                    <!-- الكليات الاقتصادية والإدارية -->
+                    <option value="كلية التجارة">كلية التجارة</option>
+                    <option value="كلية الاقتصاد والعلوم السياسية">
+                      كلية الاقتصاد والعلوم السياسية
+                    </option>
+                    <option value="كلية الخدمة الاجتماعية">
+                      كلية الخدمة الاجتماعية
+                    </option>
+                    <option value="كلية الخدمة الاجتماعية التنموية">
+                      كلية الخدمة الاجتماعية التنموية
+                    </option>
+
+                    <!-- الكليات القانونية والإعلامية -->
+                    <option value="كلية الحقوق">كلية الحقوق</option>
+                    <option value="كلية الإعلام">كلية الإعلام</option>
+
+                    <!-- كليات الفنون والآداب -->
+                    <option value="كلية الفنون الجميلة">
+                      كلية الفنون الجميلة
+                    </option>
+                    <option value="كلية الفنون التطبيقية">
+                      كلية الفنون التطبيقية
+                    </option>
+                    <option value="كلية التربية الموسيقية">
+                      كلية التربية الموسيقية
+                    </option>
+                    <option value="كلية التربية الفنية">
+                      كلية التربية الفنية
+                    </option>
+                    <option value="كلية الألسن">كلية الألسن</option>
+                    <option value="كلية الآثار">كلية الآثار</option>
+                    <option value="كلية السياحة والفنادق">
+                      كلية السياحة والفنادق
+                    </option>
+
+                    <!-- الكليات الرياضية -->
+                    <option value="كلية التربية الرياضية بنين">
+                      كلية التربية الرياضية بنين
+                    </option>
+                    <option value="كلية التربية الرياضية بنات">
+                      كلية التربية الرياضية بنات
+                    </option>
+
+                    <!-- كليات أخرى متنوعة -->
+                    <option value="كلية العلوم الطبية التطبيقية">
+                      كلية العلوم الطبية التطبيقية
+                    </option>
+                    <option value="كلية طب الأسنان">كلية طب الأسنان</option>
+                    <option value="كلية الطب البيطري">كلية الطب البيطري</option>
+                    <option value="كلية الحاسبات والمعلومات">
+                      كلية الحاسبات والمعلومات
+                    </option>
+                    <option value="كلية الذكاء الاصطناعي">
+                      كلية الذكاء الاصطناعي
+                    </option>
+                    <option value="كلية التكنولوجيا والتعليم">
+                      كلية التكنولوجيا والتعليم
+                    </option>
+                    <option value="كلية الحاسبات والذكاء الاصطناعي">
+                      كلية الحاسبات والذكاء الاصطناعي
+                    </option>
+                    <option value="كلية العلوم">كلية العلوم</option>
+                    <option value="كلية الزراعة">كلية الزراعة</option>
+                    <option value="كلية الآداب">كلية الآداب</option>
+                    <option value="كلية التربية">كلية التربية</option>
+                    <option value="كلية التربية النوعية">
+                      كلية التربية النوعية
+                    </option>
+                    <option value="كلية التربية للطفولة المبكرة">
+                      كلية التربية للطفولة المبكرة
+                    </option>
+                    <option value="كلية دار العلوم">كلية دار العلوم</option>
+                    <option value="كلية التجارة">كلية التجارة</option>
+                    <option value="كلية الاقتصاد والعلوم السياسية">
+                      كلية الاقتصاد والعلوم السياسية
+                    </option>
+                    <option value="كلية الخدمة الاجتماعية">
+                      كلية الخدمة الاجتماعية
+                    </option>
+                    <option value="كلية الخدمة الاجتماعية التنموية">
+                      كلية الخدمة الاجتماعية التنموية
+                    </option>
+                    <option value="كلية الحقوق">كلية الحقوق</option>
+                    <option value="كلية الإعلام">كلية الإعلام</option>
+                    <option value="كلية الفنون الجميلة">
+                      كلية الفنون الجميلة
+                    </option>
+                    <option value="كلية الفنون التطبيقية">
+                      كلية الفنون التطبيقية
+                    </option>
+                    <option value="كلية التربية الموسيقية">
+                      كلية التربية الموسيقية
+                    </option>
+                    <option value="كلية التربية الفنية">
+                      كلية التربية الفنية
+                    </option>
+                    <option value="كلية الألسن">كلية الألسن</option>
+                    <option value="كلية الآثار">كلية الآثار</option>
+                    <option value="كلية السياحة والفنادق">
+                      كلية السياحة والفنادق
+                    </option>
+                    <option value="كلية التربية الرياضية بنين">
+                      كلية التربية الرياضية بنين
+                    </option>
+                    <option value="كلية التربية الرياضية بنات">
+                      كلية التربية الرياضية بنات
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="gender">النوع</label>
+                  <select id="gender" name="gender" required>
+                    <option value="" disabled selected>اختر النوع</option>
+                    <option value="ذكر">ذكر</option>
+                    <option value="أنثى">أنثى</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="religion">الديانة</label>
+                  <select id="religion" name="religion" required>
+                    <option value="" disabled selected>اختر الديانة</option>
+                    <option value="مسلم">مسلم</option>
+                    <option value="مسيحي">مسيحي</option>
+                    <option value="أخرى">أخرى</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="gpa">المعدل التراكمي (GPA)</label>
+                  <input
+                    type="number"
+                    step="0.1"
+                    id="gpa"
+                    name="gpa"
+                    placeholder="مثال: 3.5"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="level">المستوى</label>
+                  <select id="level" name="level" required>
+                    <option value="" disabled selected>
+                      اختر مستواك الحالى
+                    </option>
+                    <option value="الاول">الاول</option>
+                    <option value="الثانى">الثانى</option>
+                    <option value="الثالث">الثالث</option>
+                    <option value="الرابع">الرابع</option>
+                    <option value="الخامس">الخامس</option>
+                  </select>
+                </div>
+              </div>
+
+              <button type="submit" class="submit-btn">بدء الاختبار</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <div id="quizContainer" style="display: none" class="quizContainer w-100">
+        <!-- Questions will be dynamically inserted here -->
+      </div>
+
+      <div class="navigation" style="display: none">
+        <button id="prevBtn" disabled>السابق</button>
+        <button id="nextBtn">التالي</button>
+      </div>
+
+      <!-- Sign-up Form -->
+
+      <div id="signupContainer" class="signupContainer">
+        <div class="card">
+          <div class="card-header">
+            <h2>املا البيانات</h2>
+            <p class="card-description">
+              املأ النموذج لإرسال بياناتك ومشاهدة النتائج
+            </p>
+          </div>
+
+          <div class="card-content">
+            <form id="signup-form" method="POST">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">الاسم</label>
+                  <input type="text" id="name" name="name" required />
+                </div>
+                <div class="form-group">
+                  <label for="phone">الهاتف</label>
+                  <input type="tel" id="phone" name="phone" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email">البريد الالكترونى</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="govern">المحافظة</label>
+                  <select id="govern" name="govern" required>
+                    <option value="القاهرة">القاهرة</option>
+                    <option value="الجيزة">الجيزة</option>
+                    <option value="الإسكندرية">الإسكندرية</option>
+                    <option value="الدقهلية">الدقهلية</option>
+                    <option value="البحر الأحمر">البحر الأحمر</option>
+                    <option value="البحيرة">البحيرة</option>
+                    <option value="الفيوم">الفيوم</option>
+                    <option value="الغربية">الغربية</option>
+                    <option value="الإسماعيلية">الإسماعيلية</option>
+                    <option value="المنوفية">المنوفية</option>
+                    <option value="المنيا">المنيا</option>
+                    <option value="القليوبية">القليوبية</option>
+                    <option value="الوادي الجديد">الوادي الجديد</option>
+                    <option value="السويس">السويس</option>
+                    <option value="أسوان">أسوان</option>
+                    <option value="أسيوط">أسيوط</option>
+                    <option value="بني سويف">بني سويف</option>
+                    <option value="بورسعيد">بورسعيد</option>
+                    <option value="دمياط">دمياط</option>
+                    <option value="الشرقية">الشرقية</option>
+                    <option value="جنوب سيناء">جنوب سيناء</option>
+                    <option value="كفر الشيخ">كفر الشيخ</option>
+                    <option value="مطروح">مطروح</option>
+                    <option value="الأقصر">الأقصر</option>
+                    <option value="قنا">قنا</option>
+                    <option value="شمال سيناء">شمال سيناء</option>
+                    <option value="سوهاج">سوهاج</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="password">كلمةالمرور</label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                  />
+                </div>
+
+                <div class="form-group mb-0">
+                  <label for="confirm-password">تأكيد كلمة المرور</label>
+                  <input
+                    type="password"
+                    id="confirm-password"
+                    name="confirm-password"
+                    required
+                  />
+                  <p
+                    class="password-msg p-1 w-75 mt-1 rounded-1"
+                    id="password-msg"
+                  ></p>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="residence">المنطقة</label>
+                  <select id="residence" name="residence" required>
+                    <option value="" disabled selected>اختر المنطقة</option>
+                    <option value="حضر">حضر</option>
+                    <option value="ريف">ريف</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="date">تاريخ الميلاد</label>
+                  <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    placeholder="Y-MM-DD"
+                  />
+                </div>
+              </div>
+
+              <button type="submit" class="submit-btn">ارسال</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Section -->
+      <div id="results">
+        <!-- Character Image will be displayed here -->
+        <div class="character-image-container">
+          <img
+            id="character-image"
+            class="character-image"
+            src=""
+            alt="شخصيتك"
+          />
+          <div id="character-name" class="character-name"></div>
+        </div>
+
+        <h2>نتيجتك بالتفصيل:</h2>
+        <div class="row h-50" id="detailedResults"></div>
+        <!-- <div id="primaryCharacter" class="primary-character"></div> -->
+        <a class="home-btn" href="MAWA.html" id="homeBtn">
+          اذهب الى الصفحة الرئيسية</a
+        >
+      </div>
+    </div>
+
+    <!-- تحميل مكتبة Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <!-- Description: This script handles the sign-up process and quiz functionality for a web application. It includes form validation, data submission to a Supabase database, and a quiz with character analysis based on user responses. -->
+    <script src="js/script-sign-up-game.js"></script>
+  </body>
+</html>

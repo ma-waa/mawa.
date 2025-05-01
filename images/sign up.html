@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Users Form with Supabase</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* [نفس الـ CSS اللي عندك بدون تغيير] */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    :root {
+      --primary-color: #003A75;
+      --secondary-color: #FF9F1C;
+    }
+
+    body {
+      background-color: #fff;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .logo img {
+      width: 100%;
+      height: auto;
+    }
+
+    main {
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #FF9F1C;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .card {
+      background-color: #ffffff;
+      box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .card-header {
+      padding: 20px;
+      border-bottom: 1px solid rgba(255, 159, 28, 0.2);
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+    }
+
+    .card-header h2 {
+      color: #FF9F1C;
+      margin-bottom: 8px;
+    }
+
+    .card-description {
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      flex: 1 1 300px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      margin-left: 5px;
+      color: #000;
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      background-color: #fbfdff;
+      box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.1);
+      color: #000;
+      font-size: 1rem;
+      position: relative;
+    }
+
+    input::placeholder {
+      color: #999;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #FF9F1C;
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background-color: #FF9F1C;
+      color: #002B5B;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #F08C00;
+    }
+
+    footer {
+      text-align: center;
+      color: #999;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .form-group {
+        flex: 1 1 100%;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .card-header h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="images/logo no bg.png" alt="Hotel Logo" />
+      </div>
+    </header>
+
+    <main>
+      <div class="card">
+        <div class="card-header">
+          <h2>Reservation Details</h2>
+          <p class="card-description">املأ النموذج لإرسال بياناتك</p>
+        </div>
+
+        <div class="card-content">
+          <form id="booking-form" action="#" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">الاسم</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">البريد الالكترونى</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">الهاتف</label>
+                <input type="tel" id="phone" name="phone" />
+              </div>
+
+              <div class="form-group">
+                <label for="govern">المحافظة</label>
+                <select id="govern" name="govern" required>
+                  <option value="" disabled selected>اختر المحافظة</option>
+                  <option value="اسيوط">اسيوط</option>
+                  <option value="القاهرة">القاهرة</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="universityName">الجامعة</label>
+                <select id="universityName" name="universityName" required>
+                  <option value="" disabled selected>اختر الجامعة</option>
+                  <option value="اسيوط">اسيوط</option>
+                  <option value="حلوان">حلوان</option>
+                  <option value="القاهرة">القاهرة</option>
+                  <option value="اسوان">اسوان</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="facultyname">الكلية</label>
+                <select id="facultyname" name="facultyname" required>
+                  <option value="" disabled selected>اختر الكلية</option>
+                  <option value="تجارة">تجارة</option>
+                  <option value="علوم">علوم</option>
+                  <option value="حقوق">حقوق</option>
+                  <option value="طب">طب</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="gender">النوع</label>
+                <select id="gender" name="gender" required>
+                  <option value="" disabled selected>اختر النوع</option>
+                  <option value="ذكر">ذكر</option>
+                  <option value="أنثى">أنثى</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="religion">الديانة</label>
+                <select id="religion" name="religion" required>
+                  <option value="" disabled selected>اختر الديانة</option>
+                  <option value="مسلم">مسلم</option>
+                  <option value="مسيحي">مسيحي</option>
+                  <option value="أخرى">أخرى</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="gpa">المعدل التراكمي (GPA)</label>
+                <input type="number" step="0.01" id="gpa" name="gpa" placeholder="مثال: 3.5" required />
+              </div>
+
+              <div class="form-group">
+                <label for="residence">المنطقة</label>
+                <select id="residence" name="residence" required>
+                  <option value="" disabled selected>اختر المنطقة</option>
+                  <option value="حضر">حضر</option>
+                  <option value="ريف">ريف</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="submit-btn">ارسال</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 نموذج الحجز. جميع الحقوق محفوظة.</p>
+    </footer>
+  </div>
+
+  <div id="result" style="text-align: center; margin-top: 20px;"></div>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+    const supabaseUrl = 'https://ecotpcgisopujexydlhv.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVjb3RwY2dpc29wdWpleHlkbGh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU4NjU5ODYsImV4cCI6MjA2MTQ0MTk4Nn0.OX75S76YAwlqJmXRKZA-udTr1LivfZGftPiUm6zfeDo';
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    document.getElementById('booking-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const user = {
+        name: document.getElementById('name').value,
+        mobile_number: document.getElementById('phone').value,
+        gmail: document.getElementById('email').value,
+        address: document.getElementById('govern').value,
+        faculty_name: document.getElementById('facultyname').value,
+        university_name: document.getElementById('universityName').value,
+        gender: document.getElementById('gender').value,
+        religion: document.getElementById('religion').value,
+        gpa: parseFloat(document.getElementById('gpa').value),
+        residence: document.getElementById('residence').value
+      };
+
+      const { data, error } = await supabase.from('users').insert([user]);
+
+      const resultDiv = document.getElementById('result');
+
+      if (error) {
+        console.error('Error occurred:', error);
+        resultDiv.innerText = '❌ حدث خطأ أثناء الإرسال.';
+      } else {
+        console.log('Data inserted successfully:', data);
+        resultDiv.innerText = '✅ تم إرسال البيانات بنجاح!';
+        document.getElementById('booking-form').reset();
+      }
+    });
+  </script>
+</body>
+</html>
